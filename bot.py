@@ -12,23 +12,24 @@ def main(message):
         if id == message.chat.id: 
             comand = message.text  
             markup = types.InlineKeyboardMarkup()
-            button = types.InlineKeyboardButton(text="Повторить", callback_data=comand) #создаем кнопку
+            button = types.InlineKeyboardButton(text="Повторить", callback_data=comand)
             markup.add(button) 
             try:
-                bot.send_message(user_id, check_output(comand, shell = True,  reply_markup = markup)) #вызываем команду и отправляем сообщение с результатом
+                bot.send_message(user_id, check_output(comand, shell = True,  reply_markup = markup)) 
             except:
                 bot.send_message(user_id, "Invalid input") 
         else:
             bot.send_message(user_id, "Не пущу")
+            
 
 @bot.callback_query_handler(func=lambda call: True)
 def callback(call):
   comand = call.data 
   try:
      markup = types.InlineKeyboardMarkup() 
-     button = types.InlineKeyboardButton(text="Повторить", callback_data=comand) #создаем кнопку и в data передаём команду
+     button = types.InlineKeyboardButton(text="Повторить", callback_data=comand) 
      markup.add(button)
-     bot.send_message(user_id, check_output(comand, shell = True), reply_markup = markup) #вызываем команду и отправляем сообщение с результатом
+     bot.send_message(user_id, check_output(comand, shell = True), reply_markup = markup) 
   except:
      bot.send_message(user_id, "Invalid input") 
 
