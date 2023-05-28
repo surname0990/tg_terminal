@@ -3,8 +3,8 @@ import telebot
 from telebot import types
 import time
 
-bot = telebot.TeleBot("5876606347:AAEgiavRHbgSZsmXPtreJFH9mAWK_QMilMo")
-user_id = 799654981, 332773833, 1285502212
+bot = telebot.TeleBot("")
+user_id = "", ""
 
 @bot.message_handler(content_types=["text"])
 def main(message):
