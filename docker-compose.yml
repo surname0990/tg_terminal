@@ -1,0 +1,13 @@
+version: "3.9"
+
+services:
+  telegram-bot:
+    container_name: tg_terminal
+    working_dir: /tg_terminal
+    restart: always
+    build:
+        context: .
+        # указывает на текущую директорию как контекст для сборки.
+        dockerfile: Dockerfile
+    command: sh -c "python bot.py"
+    #используется для запуска нескольких команд в одном процессе shell.
